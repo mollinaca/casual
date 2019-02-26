@@ -22,4 +22,4 @@ do
     b="${r}"
 done
 
-echo "${a}の最大公約数は${b}"
+echo "The gratest common divisor of ${1} and ${2} is ${b}"
