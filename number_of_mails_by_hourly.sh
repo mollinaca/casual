@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET_TIME="$(date '+%d %H' -d '1 hour ago'):"
+TARGET_TIME="$(date '+%e %H' -d '1 hour ago'):"
 
 number_of_sent=$(grep "${TARGET_TIME}" /var/log/maillog | grep "status=sent" | grep "relay=smtp.gmail.com" | wc -l)
 number_of_reject=$(grep "${TARGET_TIME}" /var/log/maillog | grep "NOQUEUE: reject: RCPT" | wc -l)
