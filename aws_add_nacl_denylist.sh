@@ -61,18 +61,20 @@ function add_nacl_deny_list {
     # max_RuleNumberが29999まで埋まった場合の対応
 
     # 拒否リストに追加
-    aws ec2 create-network-acl-entry --network-acl-id ${NetworkAclId} --ingress --rule-number ${new_RuleNumber} --protocol -1 --cidr-block "${targetIp}/32" --rule-action deny
-
-
+    aws ec2 create-network-acl-entry --network-acl-id ${NetworkAclId} --ingress --rule-number ${new_RuleNumber} --protocol -1 --cidr-block "${targetIp}/32" --rule-action deny >/dev/null 2>&1
+    echo "${new_RuleNumber}"
 }
 
 # 結果をSlackに通知
 function slack {
     local webhook_url="https://hooks.slack.com/services/xxxxxxxxx/yyyyyyyyy/zzzzzzzzzzzzzzzzzzzzzzzz"
+    local description
+    description="${1}"
 
     TIME=$(date '+%Y/%m/%d %H' -d '1 hour ago')
     text="add IPaddr to nacl deny list 
-    IP    : ${targetIp}/32"
+    IP    : ${targetIp}/32
+    ${description}"
 
     curl -sS -X POST --data-urlencode \
       "payload={\"text\": \"\`\`\`${text}\`\`\`\", \
@@ -84,11 +86,11 @@ function slack {
 targetIp=$(find_from_maillog)
 if [[ ! -z "${targetIp}" ]]; then
     add_nacl_deny_list "${targetIp}"
-    slack 
+    slack "from mail log"
 fi
 
 targetIp=$(find_from_securelog)
 if [[ ! -z "${targetIp}" ]]; then
     add_nacl_deny_list "${targetIp}"
-    slack 
+    slack "from secure log"
 fi
