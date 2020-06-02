@@ -1,0 +1,58 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "51d1fd52eca8e79af00e14e6763e1b6aa1a250abb9bac5b189611406e4b34493"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.8"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "dnslib": {
+            "hashes": [
+                "sha256:a0fed3e139c12ee4884b19bcde1d4a170745bcabb6026397876e3236ce38b9db"
+            ],
+            "version": "==0.9.13"
+        },
+        "dnspython": {
+            "hashes": [
+                "sha256:36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01",
+                "sha256:f69c21288a962f4da86e56c4905b49d11aba7938d3d740e80d9e366ee4f1632d"
+            ],
+            "index": "pypi",
+            "version": "==1.16.0"
+        },
+        "nslookup": {
+            "hashes": [
+                "sha256:1d553ee92574fe271b568d20d7c54da44511982deaa38dea7e957b56641bfb0a",
+                "sha256:29eb5adc60c00409d0a6f30bfb68b69135c3043e9ecc5686562d59aac5f57dc9"
+            ],
+            "index": "pypi",
+            "version": "==1.1.0"
+        },
+        "pydig": {
+            "hashes": [
+                "sha256:1ea4b793816d4116e680bd50c0f66df412124c7757bf191990e0e2ae382fe4ce",
+                "sha256:25b43e0cbbe8eae07e1cddb752fa516886e67792f1326dba57eab13f59c772e3"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
+        },
+        "pythondns": {
+            "hashes": [
+                "sha256:6969e8d90080bbf9a10b8719aa061d3c3f43093b718ee0fd651b3515b0d66f14"
+            ],
+            "index": "pypi",
+            "version": "==0.1"
+        }
+    },
+    "develop": {}
+}
